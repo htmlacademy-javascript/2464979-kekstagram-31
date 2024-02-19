@@ -1,12 +1,8 @@
 const stringLength = function (string, maxLength) {
-    if (string.length <= maxLength) {
-        return 'true'
-    } else {
-        return 'false'
-    }
+    return string.length <= maxLength
 }
 
-stringLength();
+stringLength('оченьважныйтекст', 10);
 
 const makePolindromString = function (string) {
     let normalString = string.replaceAll(' ','').toLowerCase();
@@ -17,4 +13,4 @@ const makePolindromString = function (string) {
     return reverseString === normalString;
 } 
 
-makePolindromString();
+makePolindromString('топот');

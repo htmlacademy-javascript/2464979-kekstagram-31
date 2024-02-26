@@ -24,8 +24,11 @@ const createCount = () => {
   };
 };
 
+const idComment = createCount ();
+const idPicture = createCount ();
+
 const createObject = () => ({
-  id: createCount(),
+  id: idComment (),
   avatar: `img/avatar-${getRandomInteger(1,6)}.svg`,
   message: getRandomArrayElement(COMMENTS),
   name: getRandomArrayElement(NAMES),
@@ -33,7 +36,7 @@ const createObject = () => ({
 
 const createPhotoDescription = function () {
   return {
-    id: createCount(),
+    id: idPicture(),
     url: `photos/${getRandomInteger(1,25)}.jpg`,
     description: 'Смотри, какая фотка',
     likes: getRandomInteger(15, 200),
@@ -41,4 +44,4 @@ const createPhotoDescription = function () {
   };
 };
 
-console.log(createPhotoDescription());
+createPhotoDescription();

@@ -1,9 +1,11 @@
+// Задание 1
 const stringLength = function (string, maxLength) {
   return string.length <= maxLength;
 };
 
 stringLength('оченьважныйтекст', 10);
 
+// Задание 2
 const makePolindromString = function (string) {
   const normalString = string.replaceAll(' ','').toLowerCase();
   let reverseString = '';
@@ -14,3 +16,5 @@ const makePolindromString = function (string) {
 };
 
 makePolindromString('топот');
+
+// Задание 3

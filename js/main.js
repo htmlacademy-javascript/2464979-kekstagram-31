@@ -1,2 +1,2 @@
 import { getArrayPhotos } from './create-array-miniatures.js';
-console.log(getArrayPhotos);
+window.console.log(getArrayPhotos);

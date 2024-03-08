@@ -3,3 +3,8 @@ window.console.log(getArrayPhotos);
 
 import { getThumbnails } from './create-thumbnail.js';
 window.console.log(getThumbnails);
+
+/* const picture = getArrayPhotos();
+getThumbnails(picture); */
+
+getThumbnails(getArrayPhotos);

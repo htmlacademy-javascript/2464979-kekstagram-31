@@ -12,13 +12,6 @@ function createPhoto (photoData) {
   return photo;
 }
 
-/* function getThumbnails (data) {
-  const createListFragment = document.createDocumentFragment();
-  data.forEach(({ url, description, likes, comments }) => {
-    createListFragment.append(createPhoto({ url, description, likes, comments }));
-  });
-  picturesContainer.append(createListFragment); */
-
 const getThumbnails = (data) => picturesContainer.append(...data.map(createPhoto));
 
 export { getThumbnails };

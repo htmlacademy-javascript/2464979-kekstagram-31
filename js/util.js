@@ -13,4 +13,6 @@ function createCount() {
   };
 }
 
-export {getRandomInteger, createCount};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export {getRandomInteger, createCount, isEscapeKey};

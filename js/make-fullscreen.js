@@ -1,8 +1,8 @@
 import { isEscapeKey } from './util';
 
-const userElement = document.querySelector('.picture__img');
+//const userElement = document.querySelector('.picture__img');
 const openFullScreen = document.querySelector('.big-picture');
-const cancelFullscreen =  bigPictureElement.querySelector('.cancel');
+const cancelFullscreen =  bigPictureElement.querySelector('#picture-cancel');
 
 function onDocumentKeydown (evt) {
   if (isEscapeKey(evt)) {
@@ -19,13 +19,13 @@ function modifyFullScreen (photo) {
 }
 
 function openModal () {
-  userElement.classList.remove('hidden');
+  openFullScreen.classList.remove('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
   modifyFullScreen();
 }
 
 function closeModal () {
-  userElement.classList.add('hidden');
+  openFullScreen.classList.add('hidden');
   document.removeEventListener('keydown', onDocumentKeydown);
 }
 

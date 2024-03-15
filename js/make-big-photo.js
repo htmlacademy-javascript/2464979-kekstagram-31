@@ -1,11 +1,11 @@
 import { isEscapeKey } from './util.js';
-import { getThumbnails } from './create-thumbnail.js';
+import { getArrayPhotos } from './create-array-miniatures.js';
 
 const bigPicture = document.querySelector ('.big-picture');
-const bigPictureImg = bigPicture.querySelector('.big-picture_img').querySelector('img');
+const bigPictureImg = bigPicture.querySelector('.big-picture_img img');
 const likesCount = bigPicture.querySelector('.likes-count');
 const socialComment = bigPicture.querySelector('.social_comments');
-const socialCommentTemplate = socialComment.querySelector('.social-comment');
+const socialCommentTemplate = document.querySelector('.social_comment');
 const commentsCaption = bigPicture.querySelector('.social_caption');
 const commentsCount = bigPicture.querySelector('.social_comment-count');
 const commentsLoader = bigPicture.querySelector('.social_comments-loader');
@@ -24,7 +24,7 @@ function closeBigPicture () {
 }
 
 function openBigPicture (photoId) {
-  const currentPhoto = getThumbnails.find((photo) => photo.id === Number(photoId));
+  const currentPhoto = getArrayPhotos.find((photo) => photo.id === Number(photoId));
   const socialCommentsFragment = document.createDocumentFragment();
 
   bigPictureImg.src =currentPhoto.url;

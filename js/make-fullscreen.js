@@ -1,8 +1,36 @@
-import { isEscapeKey } from './util';
+import { isEscapeKey } from './util.js';
 
-//const userElement = document.querySelector('.picture__img');
+const userElement = document.querySelector('body');
+const picturesContainer = document.querySelector('.pictures');
 const openFullScreen = document.querySelector('.big-picture');
-const cancelFullscreen =  bigPictureElement.querySelector('#picture-cancel');
+const cancelFullscreen =  document.querySelector('#picture-cancel');
+
+picturesContainer.addEventListener('click', (evt) => {
+  if (openFullScreen = evt.target.closest('picture')) {
+    openModal(openFullScreen.dataset.idPicture);
+  }
+});
+
+function modifyFullScreen (photo) {
+  openFullScreen.querySelector('.big-picture__img img').url = photo.src;
+  openFullScreen.querySelector('.likes-count').textContent = photo.likes;
+  openFullScreen.querySelector('.social__comment-shown-count').textContent = photo.comment-count;
+  openFullScreen.querySelector('.social__comment-total-count').textContent = photo.comment-total-count;
+  openFullScreen.querySelector('.social__caption').textContent = photo.description;
+}
+
+function openModal () {
+  openFullScreen.classList.remove('hidden');
+  userElement.classList.add('modal-open');
+  document.addEventListener('keydown', onDocumentKeydown);
+  modifyFullScreen();
+}
+
+function closeModal () {
+  openFullScreen.classList.add('hidden');
+  userElement.classList.remove('modal-open');
+  document.removeEventListener('keydown', onDocumentKeydown);
+}
 
 function onDocumentKeydown (evt) {
   if (isEscapeKey(evt)) {
@@ -11,26 +39,8 @@ function onDocumentKeydown (evt) {
   }
 }
 
-function modifyFullScreen (photo) {
-  openFullScreen.querySelector('.big-picture__img img').setAttribute('src', photo.url);
-  openFullScreen.querySelector('.likes-count').textContent = photo.likes;
-  openFullScreen.querySelector('.social__comment-shown-count').textContent = photo.comment-count;
-  openFullScreen.querySelector('.social__caption').textContent = photo.description;
-}
-
-function openModal () {
-  openFullScreen.classList.remove('hidden');
-  document.addEventListener('keydown', onDocumentKeydown);
-  modifyFullScreen();
-}
-
-function closeModal () {
-  openFullScreen.classList.add('hidden');
-  document.removeEventListener('keydown', onDocumentKeydown);
-}
-
 cancelFullscreen.addEventListener('click', () => {
   closeModal();
 });
 
-export {openModal};
+

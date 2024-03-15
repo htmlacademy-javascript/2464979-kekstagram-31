@@ -1,7 +1,13 @@
 import { getArrayPhotos } from './create-array-miniatures.js';
 import { getThumbnails } from './create-thumbnail.js';
-import { openModal } from './make-fullscreen.js';
+import { openBigPicture } from './make-big-photo.js';
 
 getThumbnails(getArrayPhotos);
 
-openModal();
+getThumbnails.addEventListener('click', (evt) => {
+  const currentPhoto = evt.target.closest('.picture');
+
+  if(currentPhoto) {
+    openBigPicture(currentPhoto.dataset.photoId);
+  }
+})

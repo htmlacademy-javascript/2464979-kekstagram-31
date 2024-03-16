@@ -1,4 +1,4 @@
-import { isEscapeKey } from './util.js';
+//import { isEscapeKey } from './util.js';
 
 const bigPicture = document.querySelector ('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
@@ -9,6 +9,10 @@ const commentsCaption = bigPicture.querySelector('.social__caption');
 const commentsCount = bigPicture.querySelector('.social__comment-count');
 const commentsLoader = bigPicture.querySelector('.social__comments-loader');
 const closeFullScreen = bigPicture.querySelector('.big-picture__cancel');
+
+function isEscapeKey (evt) {
+  return evt.key === 'Escape';
+}
 
 function onDocumentKeydown (evt) {
   if (isEscapeKey(evt)) {

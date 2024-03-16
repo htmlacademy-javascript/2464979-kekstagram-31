@@ -1,5 +1,3 @@
-import { isEscapeKey } from './util.js';
-
 /* const userElement = document.querySelector('body');
 const picturesContainer = document.querySelector('.pictures');
 const openFullScreen = document.querySelector('.big-picture');

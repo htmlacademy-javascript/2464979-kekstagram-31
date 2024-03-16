@@ -4,6 +4,7 @@ const templatePicture = document.querySelector('#picture').content.querySelector
 
 function createPhoto (photoData) {
   const photo = templatePicture.cloneNode(true);
+  photo.dataset.photoId = photoData.id;
   photo.querySelector('.picture__img').src = photoData.url;
   photo.querySelector('.picture__img').alt = photoData.description;
   photo.querySelector('.picture__comments').textContent = photoData.comments.length;
@@ -14,4 +15,4 @@ function createPhoto (photoData) {
 
 const getThumbnails = (data) => picturesContainer.append(...data.map(createPhoto));
 
-export { getThumbnails };
+export { getThumbnails, picturesContainer };

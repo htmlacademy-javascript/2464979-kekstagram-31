@@ -12,9 +12,9 @@ const loaders = bigPicture.querySelector('.comments-loader');
 
 const PPORTION_COMMENTS = 5;
 
-const renderCards = (photoObject) => {
+const renderCards = (getArrayPhotos) => {
 
-  photoObject.forEach((item) => {
+  getArrayPhotos.forEach((item) => {
     const newThumbnail = thumbnailTemplete.cloneNode(true);
 
     newThumbnail.querySelector('.picture__img').src = item.url;

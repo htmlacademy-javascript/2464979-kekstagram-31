@@ -3,7 +3,7 @@ import { getThumbnails, picturesContainer } from './create-thumbnail.js';
 import { openBigPicture } from './make-big-photo.js';
 import { renderCards } from './comments-laoding.js';
 
-console.log (renderCards);
+window.console.log (renderCards);
 
 getThumbnails(getArrayPhotos);
 

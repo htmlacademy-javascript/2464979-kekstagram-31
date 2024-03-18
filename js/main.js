@@ -1,7 +1,9 @@
 import { getArrayPhotos } from './create-array-miniatures.js';
 import { getThumbnails, picturesContainer } from './create-thumbnail.js';
 import { openBigPicture } from './make-big-photo.js';
+import { renderCards } from './comments-loading.js';
 
+console.log (renderCards);
 
 getThumbnails(getArrayPhotos);
 
@@ -13,4 +15,3 @@ picturesContainer.addEventListener('click', (evt) => {
     openBigPicture(currentPhotoObject);
   }
 });
-

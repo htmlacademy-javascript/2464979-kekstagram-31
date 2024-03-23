@@ -1,4 +1,4 @@
-import { isEscapeKey } from './util.js';
+/* import { isEscapeKey } from './util.js';
 
 const body = document.querySelector('body');
 
@@ -28,3 +28,4 @@ function closeBigPicture () {
 bigPictureClose.addEventListener('click', closeBigPicture);
 
 export {openBigPicture, bigPicture};
+ */

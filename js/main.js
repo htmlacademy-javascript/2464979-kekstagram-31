@@ -1,9 +1,6 @@
 import { getArrayPhotos } from './create-array-miniatures.js';
 import { getThumbnails, picturesContainer } from './create-thumbnail.js';
-import { openBigPicture } from './make-big-photo.js';
-import { renderCards } from './comments-laoding.js';
-
-window.console.log (renderCards);
+import { openBigPicture } from './bigPHOTO.js'
 
 getThumbnails(getArrayPhotos);
 

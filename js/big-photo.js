@@ -80,4 +80,4 @@ const openBigPicture = (picture) => {
   document.addEventListener('keydown', onDocumentKeydown);
 };
 
-export {openBigPicture}
+export {openBigPicture};

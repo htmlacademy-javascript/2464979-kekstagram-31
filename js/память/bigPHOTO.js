@@ -1,4 +1,4 @@
-import { isEscapeKey } from './util.js';
+import { isEscapeKey } from '../util.js';
 
 const bigPicture = document.querySelector ('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
@@ -50,4 +50,5 @@ function openBigPicture (photoObject) {
   document.addEventListener('keydown', onDocumentKeydown);
 }
 
-export {openBigPicture};
+openBigPicture();
+//export {openBigPicture};

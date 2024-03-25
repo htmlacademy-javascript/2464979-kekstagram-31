@@ -13,9 +13,8 @@ function createCount() {
   };
 }
 
-/* function isEscapeKey (evt) {
+function isEscapeKey (evt) {
   return evt.key === 'Escape';
-} */
+}
 
-//export {getRandomInteger, createCount, isEscapeKey};
-export {getRandomInteger, createCount};
+export {getRandomInteger, createCount, isEscapeKey};

@@ -1,3 +1,5 @@
+import { openBigPicture } from './big-photo.js';
+
 const picturesContainer = document.querySelector('.pictures');
 
 const templatePicture = document.querySelector('#picture').content.querySelector('.picture');
@@ -9,6 +11,11 @@ function createPhoto (photoData) {
   photo.querySelector('.picture__img').alt = photoData.description;
   photo.querySelector('.picture__comments').textContent = photoData.comments.length;
   photo.querySelector('.picture__likes').textContent = photoData.likes;
+
+  photo.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    openBigPicture(photoData);
+  });
 
   return photo;
 }

@@ -51,8 +51,8 @@ function isHashtagValid(value) {
     if(isInvalid) {
       errorMessage = rule.error;
     }
-    return !isInvalid
+    return !isInvalid;
   });
-}; // проверка для каждого элемента массива
+} // проверка для каждого элемента массива
 
 export {error, isHashtagValid};

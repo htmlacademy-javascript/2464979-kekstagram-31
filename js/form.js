@@ -1,12 +1,11 @@
 import { isEscapeKey } from './util.js';
 import { error, isHashtagValid } from './error.js';
-import { showErrorMessage, showSuccessMessage } from './alert.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadOpen = document.querySelector('.img-upload__overlay');
 const uploadClose = document.querySelector('.img-upload__cancel');
 const uploadFile = document.querySelector('.img-upload__input');
-const submitButton = document.querySelector('.img-upload__submit');
+// const submitButton = document.querySelector('.img-upload__submit');
 
 const textDescription = document.querySelector('.text__description');
 const textHashtags = document.querySelector('.text__hashtags');
@@ -35,7 +34,7 @@ function closePhotoEditor () {
 }
 
 function uploadModal() {
-  uploadFile.addEventListener('change', function () {
+  uploadFile.addEventListener('change', () => {
     uploadOpen.classList.remove('hidden');
     document.body.classList.add('modal-open');
     uploadClose.addEventListener('click', onUploadClose);
@@ -52,7 +51,7 @@ const pristine = new Pristine(uploadForm, {
 });
 
 function onHashtagInput () {
-  isHashtagValid(textHashtags.value)
+  isHashtagValid(textHashtags.value);
 } //проверка на ошибку сразу
 
 textHashtags.addEventListener('input', onHashtagInput);
@@ -70,46 +69,3 @@ uploadForm.addEventListener('submit', onFormSubmit);
 pristine.addValidator(textHashtags, isHashtagValid, error, 2, false);
 
 //console.log(pristine);
-
-textHashtags.addEventListener('input', () => {
-  if (pristine.validate()){
-    submitButton.removeAttribute('disabled');
-  } else {
-    submitButton.setAttribute('disabled','disabled');
-  }
-});
-
-function blockSubmitButton() {
-  submitButton.disabled = true;
-  submitButton.textContent = 'Опубликовываю...';
-};
-
-function unblockSubmitButton() {
-  submitButton.disabled = false;
-  submitButton.textContent = 'Опубликовать';
-}
-
-function onSuccess() {
-  showSuccessMessage();
-  unblockSubmitButton();
-  closePhotoEditor();
-}
-
-function onFailure() {
-  showErrorMessage();
-  unblockSubmitButton();
-  closePhotoEditor();
-}
-
-uploadForm.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-
-  const isValid = pristine.validate();
-
-  if (isValid) {
-    blockSubmitButton();
-    sendData(onSuccess, onFailure, new FormData(evt.target));
-  }
-});
-
-export {onUploadClose};

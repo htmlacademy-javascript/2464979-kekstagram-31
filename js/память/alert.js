@@ -1,5 +1,5 @@
-import { onUploadClose } from './form.js';
-import { isEscapeKey } from './util.js';
+import { onUploadClose } from '../form.js';
+import { isEscapeKey } from '../util.js';
 
 const elementBody = document.querySelector('body');
 const successMessage = document.querySelector('#success').content.querySelector('.success');
@@ -54,4 +54,4 @@ function showErrorMessage() {
   document.addEventListener('click', onErrorClick);
 }
 
-export {showErrorMessage, showSuccessMessage}
+export {showErrorMessage, showSuccessMessage};

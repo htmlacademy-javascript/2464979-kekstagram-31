@@ -12,7 +12,7 @@ const closeFullScreen = bigPicture.querySelector('.big-picture__cancel');
 function closeBigPicture() {
   bigPicture.classList.add('hidden');
   document.body.classList.remove('modal-open');
-};
+}
 
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
@@ -70,13 +70,13 @@ function openBigPicture(picture) {
         socialComment.append(commentElement);
       }
     });
-  };
+  }
 
   renderComments();
 
   closeFullScreen.addEventListener('click', closeBigPicture);
 
   document.addEventListener('keydown', onDocumentKeydown);
-};
+}
 
 export {openBigPicture};

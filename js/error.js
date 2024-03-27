@@ -4,9 +4,7 @@ const MAX_HASHTAG_LENGHT = 20;
 
 let errorMessage = ''; //изменяемая переменная
 
-function error() {
-  errorMessage;
-} // возвращает ошибку
+const error = () => errorMessage; // возвращает ошибку
 
 function isHashtagValid(value) {
   errorMessage = ''; //обнуляем сообщение об ошибке
@@ -40,11 +38,11 @@ function isHashtagValid(value) {
     },
     {
       check: inputArray.some((item) => item.length > MAX_HASHTAG_LENGHT),
-      error: 'Максимальная длина одного хэштега ${MAX_HASHTAG_LENGHT} символов, включая решетку',
+      error: `Максимальная длина одного хэштега ${MAX_HASHTAG_LENGHT} символов, включая решетку`,
     },
     {
       check: inputArray.length > MAX_HASHTAG_COUNT,
-      error: 'Нельзя указывать больше ${MAX_HASHTAG_LENGHT} хэштегов',
+      error: `Нельзя указывать больше ${MAX_HASHTAG_COUNT} хэштегов`,
     },
   ]; //массив ошибок
 
@@ -55,6 +53,6 @@ function isHashtagValid(value) {
     }
     return !isInvalid
   });
-} // проверка для каждого элемента массива
+}; // проверка для каждого элемента массива
 
 export {error, isHashtagValid};

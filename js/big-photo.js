@@ -4,18 +4,17 @@ const bigPicture = document.querySelector ('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
 const likesCount = bigPicture.querySelector('.likes-count');
 const socialComment = bigPicture.querySelector('.social__comments');
-//const socialCommentTemplate = document.querySelector('.social__comment');
 const commentsCaption = bigPicture.querySelector('.social__caption');
 const commentsCount = bigPicture.querySelector('.social__comment-count');
 const commentsLoader = bigPicture.querySelector('.social__comments-loader');
 const closeFullScreen = bigPicture.querySelector('.big-picture__cancel');
 
-const closeBigPicture = () => {
+function closeBigPicture() {
   bigPicture.classList.add('hidden');
   document.body.classList.remove('modal-open');
-};
+}
 
-function onDocumentKeydown (evt) {
+function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     closeBigPicture();
@@ -25,7 +24,7 @@ function onDocumentKeydown (evt) {
 closeFullScreen.removeEventListener('keydown', onDocumentKeydown);
 closeFullScreen.removeEventListener('click', onDocumentKeydown);
 
-const openBigPicture = (picture) => {
+function openBigPicture(picture) {
   bigPicture.classList.remove('hidden');
   document.body.classList.add('modal-open');
 
@@ -42,7 +41,7 @@ const openBigPicture = (picture) => {
   let loadingComments = 0;
   const COMMENTS_PER_PORTION = 5;
 
-  const renderComments = () => {
+  function renderComments() {
 
     while(socialComment.firstChild) {
       socialComment.removeChild(socialComment.firstChild);
@@ -71,13 +70,13 @@ const openBigPicture = (picture) => {
         socialComment.append(commentElement);
       }
     });
-  };
+  }
 
   renderComments();
 
   closeFullScreen.addEventListener('click', closeBigPicture);
 
   document.addEventListener('keydown', onDocumentKeydown);
-};
+}
 
 export {openBigPicture};
